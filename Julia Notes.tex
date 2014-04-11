@@ -83,12 +83,28 @@ The first big Theorem we will discuss, not in complete detail, is the following.
 
 \begin{theorem}
 Suppose $|c| > 2$. Then $J_c=K_c$ is a Cantor set. Moreover, the quadratic map $Q_c$, when restricted to $J_c$, is conjugate to the shift map on two symbols.
+
+--?-- Devaney seems ambiguous here. What is the definition of a Cantor set in $\mathbb{C}$ anyway? Is he referring to $J_c=K_c$ being a totally disconnected set?
+
 \end{theorem}
 
 
 \begin{theorem}[The Escape Criterion]
+Suppose $|z|\geq|c|>2$. Then we have that $|Q_c^n(z)| \rightarrow \infty$ as $n \rightarrow \infty$.
 
 \end{theorem}
+\begin{proof}
+We use the triangle inequality to get the following estimate:
+\begin{equation}
+    |Q_c^n(z)| \geq |z|^2 - |c| \geq |z|^2 - |z| = |z|(|z|-1)
+\end{equation}
+Since $|z| > 2$, we know that $|z|-1>1$, so there exists $\lambda > 0$ such that 
+\begin{equation}
+    |Q_c^n(z)| \geq (1+\lambda)^n|z|
+\end{equation}
+Since $|z|$ is fixed and $(1+\lambda)^n$ grows arbitrarily large, $|Q_c^n(z)|$ also grows arbitrarily large, as desired.
+
+\end{proof}
 
 \begin{corollary}
 
