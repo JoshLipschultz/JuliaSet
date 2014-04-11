@@ -1,0 +1,126 @@
+\documentclass[symmetric]{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+
+\usepackage{microtype}
+
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Lecture Notes -- The Julia Set}
+\author{Josh Lipschultz \& Ricky LeVan}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\section{Preliminaries}\label{sec:problem-1}
+
+As a quick recap of what we saw last week, recall the following facts.
+First, for the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by angle doubling ($\theta \rightarrow 2\theta$). We saw that $Q_0(z) \rightarrow \infty$ for all $|z| > 1$ and $Q_0(z) \rightarrow 0$ for all $|z| < 1$.
+
+We also defined the Julia Set $J_c$ as the boundary of the Filled Julia Set $K_c$. We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ for some $P: \mathbb{C} \rightarrow \mathbb{C}$).
+
+The \textsl{stable set} of a a complex polynomial $P$, denoted $S(P)$, is the complement of $J(C)$.
+
+Finally, the previous group discussed how the points of $S^1$ were \textsl{supersensitive}. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+
+
+\section{16.3 -- The Julia Set as a Cantor Set}\label{sec:problem-1}
+
+For this section of the talk, we will consider the family of quadratic functions 
+$Q_c(z) = z^2 +c$ when $|c|>2$. 
+
+The first big Theorem we will discuss, not in complete detail, is the following.
+
+\begin{theorem}
+Suppose $|c| > 2$. Then $J_c=K_c$ is a Cantor set. Moreover, the quadratic map $Q_c$, when restricted to $J_c$, is conjugate to the shift map on two symbols.
+\end{theorem}
+
+
+\begin{theorem}[The Escape Criterion]
+
+\end{theorem}
+
+\begin{corollary}
+
+\end{corollary}
+
+\begin{corollary}
+
+\end{corollary}
+
+\begin{corollary}
+
+\end{corollary}
+
+
+
+
+
+
+% Section 16.4
+\section{16.4 -- Computing the Filled Julia Set}\label{sec:problem-1}
+
+
+
+
+
+
+
+
+
+
+% Section 16.5
+\section{16.5 -- Computing the Julia Set Another Way}\label{sec:problem-1}
+
+
+
+
+
+\end{document}
