@@ -62,14 +62,17 @@
 \section{Preliminaries}\label{sec:problem-1}
 
 As a quick recap of what we saw last week, recall the following facts.
-First, for the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by angle doubling ($\theta \rightarrow 2\theta$). We saw that $Q_0(z) \rightarrow \infty$ for all $|z| > 1$ and $Q_0(z) \rightarrow 0$ for all $|z| < 1$.
+First, for the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by angle doubling ($\theta \rightarrow 2\theta$). We also saw that $|Q_0(z)| \rightarrow \infty$ for all $|z| > 1$ and $|Q_0(z)| \rightarrow 0$ for all $|z| < 1$.
 
-We also defined the Julia Set $J_c$ as the boundary of the Filled Julia Set $K_c$. We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ for some $P: \mathbb{C} \rightarrow \mathbb{C}$).
+We also defined the Julia Set $J_c$ as the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ for some $P: \mathbb{C} \rightarrow \mathbb{C}$).
 
 The \textsl{stable set} of a a complex polynomial $P$, denoted $S(P)$, is the complement of $J(C)$.
 
-Finally, the previous group discussed how the points of $S^1$ were \textsl{supersensitive}. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+Another useful definition was that of a \textsl{bounded orbit}. An orbit is bounded if there exists a $K$ such that $|Q_c^{\circ n}(z)| < K$ for all $n$. Otherwise the orbit is \textsl{unbounded}.
 
+The previous group also discussed how the points of $S^1$ were \textsl{supersensitive}. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+
+Finally, as a reminder, the \textsl{filled Julia set} is the set of bounded points of $Q_c$, and the Julia set
 
 \section{16.3 -- The Julia Set as a Cantor Set}\label{sec:problem-1}
 
