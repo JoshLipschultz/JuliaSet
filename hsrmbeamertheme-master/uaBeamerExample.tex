@@ -1,0 +1,77 @@
+\documentclass[compress, xcolor=pst]{beamer}
+%\documentclass[compress, xcolor=pst, handout]{beamer}
+\usepackage{graphicx}
+\mode<presentation>
+\usepackage{amsfonts, amsmath, amssymb}
+\useoutertheme{smoothbars}
+\usecolortheme{dolphin}
+\usecolortheme{rose}
+\usepackage{chngpage}
+%\usepackage{beamerthemesplit}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{comment}
+%% === bibliography packages ===
+\usepackage{natbib}
+\bibliographystyle{natbib}
+ 
+\setbeamertemplate{navigation symbols}{}
+ 
+\setbeamersize{description width=0.5cm}
+\setbeamertemplate{navigation symbols}{}
+ 
+%\usepackage{spacingset}
+\newcommand\spacingset[1]{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize}
+ 
+ 
+ 
+\title{Your title}
+\author[]{Dustin Tingley\\ \texttt{dtingley@gov.harvard.edu}}
+\institute{Department of Government, Harvard University}
+\date{\today}
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+ 
+\section{Introduction}
+\subsection{Introduction}
+\begin{frame}
+    \frametitle{\textbf{Basic slide with itemization}}
+    \begin{itemize}
+ \medskip
+\item  item 1
+ 
+\end{itemize}
+\end{frame}
+ 
+ 
+ 
+ 
+ 
+\begin{comment}
+\begin{frame}
+\frametitle{\textbf{Include a graphic}}
+\begin{figure}[htb]
+\spacingset{1}
+\centerline{\includegraphics[scale=.40]{data/postprocessing/AvatarSelectionPlot-Role2.pdf}}
+\end{figure}
+\end{frame}
+\end{comment}
+ 
+ 
+%this way you can have a bibliography in your slides.
+\begin{comment}
+\begin{frame}[allowframebreaks]
+\def\newblock{}
+\bibliography{TingleyBib}
+\end{frame}
+\end{comment}
+ 
+ 
+ 
+\end{document}

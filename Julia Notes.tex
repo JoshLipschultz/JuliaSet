@@ -62,48 +62,52 @@
 \section{Preliminaries}\label{sec:problem-1}
 
 As a quick recap of what we saw last week, recall the following facts.
-First, for the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by angle doubling ($\theta \rightarrow 2\theta$). We also saw that $|Q_0(z)| \rightarrow \infty$ for all $|z| > 1$ and $|Q_0(z)| \rightarrow 0$ for all $|z| < 1$.
 
-We also defined the Julia Set $J_c$ as the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ for some $P: \mathbb{C} \rightarrow \mathbb{C}$).
-
-The \textsl{stable set} of a a complex polynomial $P$, denoted $S(P)$, is the complement of $J(C)$.
+The \textsl{stable set} of a a complex polynomial $P: \mathbb{C} \rightarrow \mathbb{C}$, denoted $S(P)$, is the complement of $J(C)$.
 
 Another useful definition was that of a \textsl{bounded orbit}. An orbit is bounded if there exists a $K$ such that $|Q_c^{\circ n}(z)| < K$ for all $n$. Otherwise the orbit is \textsl{unbounded}.
 
 The previous group also discussed how the points of $S^1$ were \textsl{supersensitive}. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
 
-Finally, as a reminder, the \textsl{filled Julia set} is the set of bounded points of $Q_c$, and the Julia set
+We also defined the Julia Set $J_c$ as the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ ).
+
+For the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by angle doubling ($\theta \rightarrow 2\theta$). We also saw that $|Q_0(z)| \rightarrow \infty$ for all $|z| > 1$ and $|Q_0(z)| \rightarrow 0$ for all $|z| < 1$.
+
+Finally, we learned that for $Q_{-2}(z) = z^2 - 2$, we have $J_2 = K_2 = [-2, 2]$, so any $z \in \mathbb{C} \ [-2,2] \rightarrow \infty$ as we compose $Q_{-2}(z)$ infinitely many times. 
+
 
 \section{16.3 -- The Julia Set as a Cantor Set}\label{sec:problem-1}
 
-For this section of the talk, we will consider the family of quadratic functions 
-$Q_c(z) = z^2 +c$ when $|c|>2$. 
+Our goal for this section of the talk is to discuss and prove parts of
+the following theorem.
 
-The first big Theorem we will discuss, not in complete detail, is the following.
 
 \begin{theorem}
-Suppose $|c| > 2$. Then $J_c=K_c$ is a Cantor set. Moreover, the quadratic map $Q_c$, when restricted to $J_c$, is conjugate to the shift map on two symbols.
+If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forward orbits lie within the circle $|z|=|c|$, is a Cantor set on which $Q_c$ is topologically conjugate to the shift map on two symbols. All points in $\mathbb{C} - \Lambda$ tend to $\infty$ under iteration of $Q_c$. Hence, $J_c=K_c$.
 \end{theorem}
+
+
+
+\subsection{Points Which Escape}
 
 
 \begin{theorem}[The Escape Criterion]
-
+Let $2 < |c| \le |z|$. Then $Q_c^{\circ n}(z)\rightarrow \infty$ as $n\rightarrow \infty$.
 \end{theorem}
 
 \begin{corollary}
 
 \end{corollary}
 
-\begin{corollary}
-
-\end{corollary}
-
-\begin{corollary}
-
-\end{corollary}
 
 
+\subsection{The Filled Julia Set}
 
+Let $D$ be the closed disk (i.e. $\{z : |z| \le |c|\}$). Then the filled Julia set of $Q_c$ is given by
+\begin{align*}
+\bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)
+\end{align*}
+where $Q_c^{-n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 
 
 
@@ -119,8 +123,8 @@ Suppose $|c| > 2$. Then $J_c=K_c$ is a Cantor set. Moreover, the quadratic map $
 
 
 
-% Section 16.5
-\section{16.5 -- Computing the Julia Set Another Way}\label{sec:problem-1}
+% Section 16.6
+\section{16.6 -- Computing the Julia Set Another Way}\label{sec:problem-1}
 
 
 

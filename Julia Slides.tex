@@ -1,0 +1,178 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  This Beamer template was created by Cameron Bracken.
+%%  Anyone can freely use or modify it for any purpose
+%%  without attribution.
+%%
+%%  Last Modified: January 9, 2009
+%%
+
+\documentclass[xcolor=x11names,compress]{beamer}
+
+%% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{decorations.fractals}
+\usetikzlibrary{shadings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Beamer Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\useinnertheme{rounded}
+%\usefonttheme{serif}
+%\usepackage{palatino}
+%\usetheme{Madrid}
+\useoutertheme[subsection=false,shadow, circles]{smoothbars}
+\usecolortheme{rose}
+
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usefonttheme{serif}
+\setmainfont{FlamaLight}
+
+
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+\setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4} 
+\setbeamercolor*{normal text}{fg=black,bg=white} 
+\setbeamercolor*{alerted text}{fg=red} 
+\setbeamercolor*{example text}{fg=black} 
+\setbeamercolor*{structure}{fg=black} 
+ 
+\setbeamercolor*{palette tertiary}{fg=black,bg=black!10} 
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
+
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\<}[1]{\begin{column}{#1}}
+\renewcommand{\>}{\end{column}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{thm}{Theorem}
+\newtheorem{pf}{Proof}
+\newtheorem{defn}{Definition}
+\newtheorem{rmk}{Remark}
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{\scshape Introduction}
+\begin{frame}
+\title{Julia Sets}
+\subtitle{Theory and Algorithms}
+\author{
+	Josh Lipschultz \& Ricky LeVan\\
+	{\it MATH/CAAM 435}\\
+}
+\date{
+%	\begin{tikzpicture}[decoration=Julia set] 
+%		\draw[DeepSkyBlue4] decorate{ decorate{ decorate{ (0,0) -- (3,0) }}}; 
+%	\end{tikzpicture} 
+\begin{tikzpicture}[decoration=Cantor set,very thick]
+\draw[DeepSkyBlue4] decorate{ (0,0) -- (5,0) };
+\draw[DeepSkyBlue4] decorate{ decorate{ (0,-.5) -- (5,-.5) }};
+\draw[DeepSkyBlue4] decorate{ decorate{ decorate{ (0,-1) -- (5,-1) }}};
+\draw[DeepSkyBlue4] decorate{ decorate{ decorate{ decorate{ (0,-1.5) -- (5,-1.5) }}}};
+\end{tikzpicture}
+	\\
+	\vspace{1cm}
+	April 15, 2014
+}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Introduction}
+%\tableofcontents
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape Preliminaries}
+\subsection{frame 1}
+\begin{frame}
+
+
+A quick recap of last week:
+
+\pause
+
+\begin{defn}
+The \textsl{stable set} of a a complex polynomial $P: \mathbb{C} \rightarrow \mathbb{C}$, denoted $S(P)$, is the complement of $J(C)$.
+\end{defn}
+
+\pause
+
+\begin{defn}
+An orbit is \textsl{bounded} if there exists a $K$ such that $|Q_c^{\circ n}(z)| < K$ for all $n$. Otherwise the orbit is \textsl{unbounded}.
+\end{defn}
+
+
+\begin{rmk}
+The points of $S^1$ were \textsl{supersensitive}. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+\end{rmk}
+
+We also defined the Julia Set $J_c$ as the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ ).
+
+For the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by angle doubling ($\theta \rightarrow 2\theta$). We also saw that $|Q_0(z)| \rightarrow \infty$ for all $|z| > 1$ and $|Q_0(z)| \rightarrow 0$ for all $|z| < 1$.
+
+Finally, we learned that for $Q_{-2}(z) = z^2 - 2$, we have $J_2 = K_2 = [-2, 2]$, so any $z \in \mathbb{C} \ [-2,2] \rightarrow \infty$ as we compose $Q_{-2}(z)$ infinitely many times. 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape Cantor Construction}
+
+
+\subsection{frame 2}
+\begin{frame}
+
+\end{frame}
+
+
+\subsection{frame 2}
+\begin{frame}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape $K_c$ Algorithm}
+\subsection{frame 2}
+\begin{frame}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape $J_c$ Algorithm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 2}
+\begin{frame}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 3}
+\begin{frame}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape Methodology}
+
+
+\end{document}
