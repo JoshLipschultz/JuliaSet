@@ -92,7 +92,7 @@ If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forwar
 
 
 
-\begin{theorem}[The Escape Criterion]
+\begin{theorem} \label{escape} [The Escape Criterion]
 Suppose $2 < |c| \le |z|$. Then we have that $|Q_c^n(z)| \rightarrow \infty$ as $n \rightarrow \infty$.
 
 \end{theorem}
@@ -119,11 +119,27 @@ Since $|z|$ is fixed and $(1+\lambda)^n$ grows arbitrarily large, $|Q_c^n(z)|$ a
 
 \subsection{The Filled Julia Set}
 
+\begin{theorem}
 Let $D$ be the closed disk (i.e. $\{z : |z| \le |c|\}$). Then the filled Julia set of $Q_c$ is given by
 \begin{align*}
-\bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)
+K_c = \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)
 \end{align*}
-where $Q_c^{-n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
+where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
+\end{theorem}
+
+\begin{proof}
+    Consider the case where
+    $z\notin \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$.
+    Then there exists some $k\in \mathbb{N}$ such that $z\notin Q_c^{\circ -k} (D)$,
+    so we have that $Q_c^{\circ k}(z) \notin D$. 
+    Thus by Theorem ~\ref{escape}, $z$ escapes to infinity under iteration
+    of $Q_c$, so $z\notin K_c$.  
+
+    Otherwise, if $z\in \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$, then 
+     $Q_c^{\circ n}(z) \in D$ for all $n\in \mathbb{N}$. Thus $z$ is bounded under
+     iteration of $Q_c$, so $z\in K_c$.
+
+\end{proof}
 
 
 
