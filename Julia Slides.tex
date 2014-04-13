@@ -24,11 +24,14 @@
 \useoutertheme[subsection=false,shadow, circles]{smoothbars}
 \usecolortheme{rose}
 
+\usepackage{fontspec}
 \usepackage{xunicode} 
 \usepackage{xltxtra}
-\usepackage{fontspec}
+\usepackage{algorithm,algorithmic}
+
+
 \usefonttheme{serif}
-\setmainfont{FlamaLight}
+% (commenting this out to run on writelatex.com) \setmainfont{FlamaLight}
 
 
 \setbeamerfont{title like}{shape=\scshape}
@@ -98,8 +101,6 @@
 \begin{frame}
 
 
-A quick recap of last week:
-
 \pause
 
 \begin{defn}
@@ -124,7 +125,7 @@ The points of $S^1$ are \textsl{supersensitive} under $Q_{0}$. That is, any open
 \begin{frame}
 
 \begin{defn}
-The Julia Set $J_c$ is the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$..
+The Julia Set $J_c$ is the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$.
 \end{defn}
 
 \pause
@@ -170,6 +171,47 @@ If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forwar
 \subsection{frame 2}
 \begin{frame}
 
+\begin{theorem} [The Escape Criterion]
+Suppose $2 < |c| \le |z|$. Then we have that $|Q_c^n(z)| \rightarrow \infty$ as $n \rightarrow \infty$.
+\end{theorem}
+
+\begin{proof}
+We use the triangle inequality to get the following estimate:
+\begin{equation}
+    |Q_c^n(z)| \geq |z|^2 - |c| \geq |z|^2 - |z| = |z|(|z|-1)
+\end{equation}
+Since $|z| > 2$, we know that $|z|-1>1$, so there exists $\lambda > 0$ such that 
+\begin{equation}
+    |Q_c^n(z)| \geq (1+\lambda)^n|z|
+\end{equation}
+Since $|z|$ is fixed and $(1+\lambda)^n$ grows arbitrarily large, $|Q_c^n(z)|$ also grows arbitrarily large, as desired.
+\end{proof}
+
+\end{frame}
+
+\subsection{frame 3}
+\begin{frame}
+
+\begin{theorem}
+Let $D$ be the closed disk (i.e. $\{z : |z| \le |c|\}$), with $|c|>2$. Then the filled Julia set of $Q_c$ is given by
+\begin{align*}
+K_c = \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)
+\end{align*}
+where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
+\end{theorem}
+
+\begin{proof}
+    Consider the case where
+    $z\notin \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$.
+    Then there exists some $k\in \mathbb{N}$ such that $z\notin Q_c^{\circ -k} (D)$,
+    so we have that $Q_c^{\circ k}(z) \notin D$. 
+    Thus by the escape criterion, $z$ escapes to infinity under iteration
+    of $Q_c$, so $z\notin K_c$.  
+
+    Otherwise, if $z\in \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$, then 
+     $Q_c^{\circ n}(z) \in D$ for all $n\in \mathbb{N}$. Thus $z$ is bounded under
+     iteration of $Q_c$, so $z\in K_c$.
+\end{proof}
 \end{frame}
 
 
@@ -178,6 +220,23 @@ If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forwar
 \section{\scshape $K_c$ Algorithm}
 \subsection{frame 2}
 \begin{frame}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\FOR{$j=1$ to $N$}
+\FOR{$z$ in $grid$}
+\STATE $z = Q_c(z)$ 
+\ENDFOR
+\ENDFOR
+\FOR{$z$ in $grid$}
+\IF{$|z|\leq max(|c|,2)$}
+\STATE $paintBlack(z)$
+\ENDIF
+\ENDFOR
+
+\end{algorithmic}
+\caption{Algorithm to plot K\_c }
+\label{alg:seq}
+\end{algorithm}
 
 \end{frame}
 
@@ -190,6 +249,29 @@ If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forwar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{frame 2}
 \begin{frame}
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+
+\STATE $z = randomComplexNumber()$
+\FOR{$j=1$ to $10000$}
+\STATE $binaryRand = randomBinaryNumber()$
+\IF{$binaryRand == 0$} 
+\STATE $z = sqrt(z-c)$
+\ELSE
+\STATE $z = -sqrt(z-c)$
+\ENDIF
+
+\IF{$j > 100$}
+\STATE $paintBlack(z)$
+\ENDIF
+
+\ENDFOR
+
+\end{algorithmic}
+\caption{Algorithm to plot J\_c }
+\label{alg:seq}
+\end{algorithm}
 
 \end{frame}
 
