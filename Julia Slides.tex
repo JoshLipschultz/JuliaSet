@@ -27,11 +27,11 @@
 \usepackage{fontspec}
 \usepackage{xunicode} 
 \usepackage{xltxtra}
-\usepackage{algorithm,algorithmic}
-
+\usepackage[ruled, vlined]{algorithm2e}
 
 \usefonttheme{serif}
-% (commenting this out to run on writelatex.com) \setmainfont{FlamaLight}
+% (commenting this out to run on writelatex.com) 
+\setmainfont{FlamaLight}
 
 
 \setbeamerfont{title like}{shape=\scshape}
@@ -172,13 +172,13 @@ If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forwar
 \begin{frame}
 
 \begin{theorem} [The Escape Criterion]
-Suppose $2 < |c| \le |z|$. Then we have that $|Q_c^n(z)| \rightarrow \infty$ as $n \rightarrow \infty$.
+Suppose $2 < |c| \le |z|$. Then we have that $|Q_c^{\circ n}(z)| \rightarrow \infty$ as $n \rightarrow \infty$.
 \end{theorem}
 
 \begin{proof}
 We use the triangle inequality to get the following estimate:
 \begin{equation}
-    |Q_c^n(z)| \geq |z|^2 - |c| \geq |z|^2 - |z| = |z|(|z|-1)
+    |Q_c(z)| \geq |z|^2 - |c| \geq |z|^2 - |z| = |z|(|z|-1)
 \end{equation}
 Since $|z| > 2$, we know that $|z|-1>1$, so there exists $\lambda > 0$ such that 
 \begin{equation}
@@ -202,13 +202,13 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 
 \begin{proof}
     Consider the case where
-    $z\notin \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$.
+    $z\notin \bigcap_{n\ge 0} Q_c^{\circ -n} (D)$.
     Then there exists some $k\in \mathbb{N}$ such that $z\notin Q_c^{\circ -k} (D)$,
     so we have that $Q_c^{\circ k}(z) \notin D$. 
     Thus by the escape criterion, $z$ escapes to infinity under iteration
     of $Q_c$, so $z\notin K_c$.  
 
-    Otherwise, if $z\in \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$, then 
+    Otherwise, if $z\in \bigcap_{n\ge 0} Q_c^{\circ -n} (D)$, then 
      $Q_c^{\circ n}(z) \in D$ for all $n\in \mathbb{N}$. Thus $z$ is bounded under
      iteration of $Q_c$, so $z\in K_c$.
 \end{proof}
@@ -218,24 +218,31 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape $K_c$ Algorithm}
+
 \subsection{frame 2}
 \begin{frame}
-\begin{algorithm}[H]
-\begin{algorithmic}[1]
-\FOR{$j=1$ to $N$}
-\FOR{$z$ in $grid$}
-\STATE $z = Q_c(z)$ 
-\ENDFOR
-\ENDFOR
-\FOR{$z$ in $grid$}
-\IF{$|z|\leq max(|c|,2)$}
-\STATE $paintBlack(z)$
-\ENDIF
-\ENDFOR
 
-\end{algorithmic}
+\begin{algorithm}[H]
+  \SetKwFunction{KwPaint}{paintBlack} 
+  \SetKwFunction{KwMax}{max} 
+  \DontPrintSemicolon
+  \LinesNumbered
+
+\KwIn{
+	Grid, a list of evenly-spaced complex numbers in a rectangular region of the complex plane
+}
+
+\For{$j  \leftarrow 1$ to $N$}{
+	\For{$z$ in $grid$}{
+		$z \leftarrow Q_c(z)$ \;
+	}
+}
+\For{$z$ in $grid$} {
+	\If{$|z| \le max(|c|,2)$}{
+		\KwPaint{z}\;
+	}
+}
 \caption{Algorithm to plot K\_c }
-\label{alg:seq}
 \end{algorithm}
 
 \end{frame}
@@ -251,26 +258,35 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 \begin{frame}
 
 \begin{algorithm}[H]
-\begin{algorithmic}[1]
+  \SetKwFunction{KwRand}{randomBit} 
+  \SetKwFunction{KwPaint}{paintBlack} 
+  \SetKwFunction{KwRandC}{randomComplexNumber} 
+  \DontPrintSemicolon
+  \LinesNumbered
+\KwIn{
+	MaxIter, the maximum number of iterations to perform
+}
 
-\STATE $z = randomComplexNumber()$
-\FOR{$j=1$ to $10000$}
-\STATE $binaryRand = randomBinaryNumber()$
-\IF{$binaryRand == 0$} 
-\STATE $z = sqrt(z-c)$
-\ELSE
-\STATE $z = -sqrt(z-c)$
-\ENDIF
 
-\IF{$j > 100$}
-\STATE $paintBlack(z)$
-\ENDIF
+$z \leftarrow $ \KwRandC{}\;
+\For{$j  \leftarrow 1$ to \ArgSty{MaxIter}}{
+	$binaryRand \leftarrow $ \KwRand{} \;
+	
+	\If{$binaryRand = 0$}{
+		$z \leftarrow \sqrt{(z-c)}$\;
+	} \Else{
+		$z \leftarrow -\sqrt{(z-c)}$\;
+	}
 
-\ENDFOR
+	\If{$j > 100$}{
+		\KwPaint{z}   \;
+	}
 
-\end{algorithmic}
+
+}
+
 \caption{Algorithm to plot J\_c }
-\label{alg:seq}
+
 \end{algorithm}
 
 \end{frame}
