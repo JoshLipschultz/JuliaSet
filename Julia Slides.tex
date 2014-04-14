@@ -117,7 +117,7 @@ An orbit is \textsl{bounded} if there exists a $K$ such that $|Q_c^{\circ n}(z)|
 \pause
 
 \begin{rmk}
-The points of $S^1$ are \textsl{supersensitive} under $Q_{0}$. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+The points of $S^1$ are \textsl{supersensitive} under $Q_{0}$. That is, any open ball $B$ around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (B) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
 \end{rmk}
 
 \end{frame}
@@ -378,6 +378,23 @@ When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape $J_c$ Algorithm}
+
+\begin{frame}
+
+Explanation for an alternative plotting algorithm
+
+The above algorithm works well for $K_c$ but as well for $J_c$.
+To remedy this, recall that $Q_c$ is supersensitive on $J_c$.
+This means that any neighborhood $B$ of some point $z\in J_c$ has
+the property that 
+$\bigcup_{n=0}^\infty Q_0^{\circ n} (B) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+
+So supersensitive points serve as ``attractors'' for the backward iteration of $Q_c$, 
+in the sense that for each supersensitive point, all of $\mathbb{C}$ except at most one point
+must come arbitrarily close to it on reverse iteration. 
+
+
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
