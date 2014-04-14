@@ -100,6 +100,7 @@
 \subsection{frame 1}
 \begin{frame}
 
+Quick refresher from last time:
 
 \pause
 
@@ -217,6 +218,134 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 4}
+\begin{frame}
+
+Let's return to the theorem we wish to prove. 
+
+\vspace{.4cm}
+\pause
+
+
+Take $C$ to be the circle around the origin of radius $|c|$. What does $Q^{\circ -1}_c(C)$ look like? Recall from last week that $\pm \sqrt{C - c}$ is the following Lemniscate-like shape (by the Boundary Mapping Principle).
+
+
+\begin{figure}
+\includegraphics[scale=.4]{lobes1.png}
+\end{figure}
+
+\pause
+
+Where each 'lobe' is mapped diffeomorphically (continuously bijected) to $C$.
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 4}
+\begin{frame}
+
+Repeating this process yields nested lobes, each a diffeomorphism to its 'parent' lobe from the previous iteration. Below is a visualization of this process for two backwards-iterations.
+
+\pause
+
+\begin{figure}
+\includegraphics[scale=.4]{lobes2.png}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 4}
+\begin{frame}
+
+Each lobe of the $k^{\text{th}}$ iteration of this process can be identified by a $0$ or $1$, as each lobe 
+diffeomorphically maps to two inner lobes during each iteration. 
+
+\vspace{.4cm}
+\pause
+
+We therefore have $2^k$ unique lobes after $k$ iterations.
+
+\vspace{.4cm}
+\pause
+
+Define
+\begin{align*}
+I_{s_0s_1\ldots s_n} = \{z\in D \; | \;  z \in I_{s_0}, Q_c(z) \in I_{s_1}, \ldots, Q_c^{\circ n}(z) \in I_{s_n}\}
+\end{align*}
+
+\pause
+
+As you may have noticed, this is identical to our previous use of symbolic dynamics (in relation
+to the Cantor Middle-Thirds set). By similar logic to our discussion before, the following  
+intersection is a nonempty set.
+\begin{align*}
+\bigcap\limits_{n\ge 0} I_{s_0s_1 \ldots s_n}
+\end{align*}
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 5}
+\begin{frame}
+
+This gives us that, for any $z \in \cap_{n\ge 0} I_{s_0s_1\ldots s_n}$, $Q_c^{\circ k} (z) \in D$ for all $k$. Hence, $z \in K_c$.
+
+\vspace{0.4cm}
+\pause
+
+A \textsl{component} of $K_c$ is defined as an infinite intersection of figure-eights and their lobes. Two components are necessarily disjoint.
+
+\vspace{0.4cm}
+\pause
+
+Conversely, any $z \in K_c$ must lie in exactly one of these components, since any infinite string of $1$s and $0$
+maps to any $z$ by $S(z) = s_0s_1\ldots s_n$ provided $z\in \cap_{n\ge 0} I_{s_0s_1 \ldots s_n}$.
+
+\vspace{0.4cm}
+\pause
+
+Similar arguments to those we used for the Cantor set yield that [1] this correspondence is continuous and [2] that each of these infinite intersections is exactly a single point in the complex plane. The mechanics behind this exceed the scope of this lecture (and class), so we will not include them here.
+
+
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{frame 6}
+\begin{frame}
+
+
+\begin{rmk}
+Since each component of $K_c$ is a point when $|c| > 2$, the Julia and filled Julia sets are identical.
+\end{rmk}
+
+\begin{rmk}
+$Q_c$ is supersensitive on $J_c$.
+\end{rmk}
+
+\begin{rmk}
+When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thursday.
+\end{rmk}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape $K_c$ Algorithm}
 
 \subsection{frame 2}
@@ -228,21 +357,20 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
   \DontPrintSemicolon
   \LinesNumbered
 
-\KwIn{
-	Grid, a list of evenly-spaced complex numbers in a rectangular region of the complex plane
-}
+\KwIn{grid, a list of evenly-spaced complex numbers in a rectangular region of the complex plane}
 
 \For{$j  \leftarrow 1$ to $N$}{
 	\For{$z$ in $grid$}{
 		$z \leftarrow Q_c(z)$ \;
 	}
 }
+		\tcp*{Shade all points which didn't escape}
 \For{$z$ in $grid$} {
 	\If{$|z| \le max(|c|,2)$}{
 		\KwPaint{z}\;
 	}
 }
-\caption{Algorithm to plot K\_c }
+\caption{Algorithm to plot $K_c$ }
 \end{algorithm}
 
 \end{frame}
@@ -263,21 +391,21 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
   \SetKwFunction{KwRandC}{randomComplexNumber} 
   \DontPrintSemicolon
   \LinesNumbered
-\KwIn{
-	MaxIter, the maximum number of iterations to perform
-}
+\KwIn{MaxIter, the maximum number of iterations to perform}
 
 
 $z \leftarrow $ \KwRandC{}\;
 \For{$j  \leftarrow 1$ to \ArgSty{MaxIter}}{
 	$binaryRand \leftarrow $ \KwRand{} \;
-	
+
+		\tcp*{Pick a random backwards iteration}	
 	\If{$binaryRand = 0$}{
 		$z \leftarrow \sqrt{(z-c)}$\;
 	} \Else{
 		$z \leftarrow -\sqrt{(z-c)}$\;
 	}
 
+		\tcp*{Don't plot stray points}
 	\If{$j > 100$}{
 		\KwPaint{z}   \;
 	}
@@ -285,7 +413,7 @@ $z \leftarrow $ \KwRandC{}\;
 
 }
 
-\caption{Algorithm to plot J\_c }
+\caption{Algorithm to plot $J_c$ }
 
 \end{algorithm}
 
