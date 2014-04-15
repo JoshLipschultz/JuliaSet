@@ -9,6 +9,7 @@
 \documentclass[xcolor=x11names,compress]{beamer}
 
 %% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{decorations.fractals}
@@ -122,6 +123,9 @@ The points of $S^1$ are \textsl{supersensitive} under $Q_{0}$. That is, any open
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{frame 2}
 \begin{frame}
 
@@ -142,6 +146,18 @@ For the quadratic map $Q_0(z) = z^2$ we saw chaotic behavior only on $S^1$ by an
 \begin{rmk}
 Finally, we learned that for $Q_{-2}(z) = z^2 - 2$, we have $J_2 = K_2 = [-2, 2]$, so any $z \in \mathbb{C} \setminus [-2,2] \rightarrow \infty$ as we compose $Q_{-2}(z)$ infinitely many times. 
 \end{rmk}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{frame 3}
+\begin{frame}
+
+\begin{defn}
+A set $\Lambda \subseteq \mathbb{C}$ is a Cantor set if it is a closed, totally disconnected, and perfect subset of $\mathbb{C}$. (Adapted from the version for an interval of the real line.)
+\end{defn}
 
 \end{frame}
 
@@ -234,7 +250,7 @@ Take $C$ to be the circle around the origin of radius $|c|$. What does $Q^{\circ
 \includegraphics[scale=.4]{lobes1.png}
 \end{figure}
 
-\pause
+
 
 Where each 'lobe' is mapped diffeomorphically (continuously bijected) to $C$.
 
@@ -329,11 +345,12 @@ Similar arguments to those we used for the Cantor set yield that [1] this corres
 
 
 \begin{rmk}
-Since each component of $K_c$ is a point when $|c| > 2$, the Julia and filled Julia sets are identical.
+$Q_c$ is supersensitive on $J_c$. (As handwavy as Devaney)
 \end{rmk}
 
+
 \begin{rmk}
-$Q_c$ is supersensitive on $J_c$.
+Since $K_c$ is a Cantor set (each component of $K_c$ is a point) when $|c| > 2$, the Julia and filled Julia sets are identical ($K_c = J_c$).
 \end{rmk}
 
 \begin{rmk}
@@ -374,6 +391,19 @@ When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thur
 \end{algorithm}
 
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{frame 3}
+\begin{frame}
+
+\href{http://acko.net/blog/how-to-fold-a-julia-fractal/}{Acko -- How to Fold a Julia Fractal}
+
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

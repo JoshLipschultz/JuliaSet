@@ -67,7 +67,7 @@ The \textsl{stable set} of a a complex polynomial $P: \mathbb{C} \rightarrow \ma
 
 Another useful definition was that of a \textsl{bounded orbit}. An orbit is bounded if there exists a $K$ such that $|Q_c^{\circ n}(z)| < K$ for all $n$. Otherwise the orbit is \textsl{unbounded}.
 
-The previous group also discussed how the points of $S^1$ were \textsl{supersensitive}. That is, any open ball around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (z) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+The previous group also discussed how the points of $S^1$ were \textsl{supersensitive}. That is, any open ball $B$ around $z \in S^1$ has the property that $\bigcup_{n=0}^\infty Q_0^{\circ n} (B) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
 
 We also defined the Julia Set $J_c$ as the boundary of the filled Julia set $K_c$. (The filled Julia set is the set of bounded points of $Q_c$.) We could alternatively define $J_c$ as the closure of the set of repelling points of $Q_c$ (in fact, this definition isn't limited to the quadratic map; any polynomial will do, and is denoted $J(P)$ ).
 
@@ -111,9 +111,9 @@ Since $|z|$ is fixed and $(1+\lambda)^n$ grows arbitrarily large, $|Q_c^n(z)|$ a
 
 
 
-\begin{corollary}
 
-\end{corollary}
+\subsection{Points Which Escape}
+
 
 
 
@@ -129,22 +129,26 @@ where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 
 \begin{proof}
     Consider the case where
-    $z\notin \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$.
+    $z\notin \bigcap_{n\ge 0} Q_c^{\circ -n} (D)$.
     Then there exists some $k\in \mathbb{N}$ such that $z\notin Q_c^{\circ -k} (D)$,
     so we have that $Q_c^{\circ k}(z) \notin D$. 
-    Thus by Theorem ~\ref{escape}, $z$ escapes to infinity under iteration
+    Thus by Theorem~\ref{escape}, $z$ escapes to infinity under iteration
     of $Q_c$, so $z\notin K_c$.  
 
-    Otherwise, if $z\in \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)$, then 
+    Otherwise, if $z\in \bigcap_{n\ge 0} Q_c^{\circ -n} (D)$, then 
      $Q_c^{\circ n}(z) \in D$ for all $n\in \mathbb{N}$. Thus $z$ is bounded under
      iteration of $Q_c$, so $z\in K_c$.
 \end{proof}
 
-The above characterization of Julia sets provides a method of construction based on 
+\marginnote{\includegraphics{lobes1.png}}
+\newthought{The above characterization} of Julia sets provides a method of construction based on 
 a given function $Q_c$. The key idea is that inverting the quadratic function and 
 applying the Boundary Mapping Principle gives us a system of nested ``figure-eight''
 lobes within lobes.
 
+More specifically, begin with a disk of radius $|c|$ centered at the origin. We can take reverse-iterations of $Q_c$ by subtracting $c$ from all points, then taking their square root. The shape this process yields is one similar to the picture on the left. The lemniscate-like shape has two lobes, each of which has a diffeomorphic mapping to the entire 
+
+\marginnote{\includegraphics{lobes2.png}}
 
 
 % Section 16.4
