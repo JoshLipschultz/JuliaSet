@@ -59,6 +59,13 @@
 \newtheorem{rmk}{Remark}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{aqua}{RGB}{63,113,113}
+\definecolor{lightaqua}{RGB}{184,222,222}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{document}
 
 
@@ -106,8 +113,9 @@ Quick refresher from last time:
 \pause
 
 \begin{defn}
-The \textsl{stable set} of a a complex polynomial $P: \mathbb{C} \rightarrow \mathbb{C}$, denoted $S(P)$, is the complement of $J(C)$.
+A set $\Lambda \subseteq \mathbb{C}$ is a Cantor set if it is a closed, totally disconnected, and perfect subset of $\mathbb{C}$. (Adapted from the version for an interval of the real line.)
 \end{defn}
+
 
 \pause
 
@@ -149,19 +157,6 @@ Finally, we learned that for $Q_{-2}(z) = z^2 - 2$, we have $J_2 = K_2 = [-2, 2]
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{frame 3}
-\begin{frame}
-
-\begin{defn}
-A set $\Lambda \subseteq \mathbb{C}$ is a Cantor set if it is a closed, totally disconnected, and perfect subset of $\mathbb{C}$. (Adapted from the version for an interval of the real line.)
-\end{defn}
-
-\end{frame}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -176,11 +171,20 @@ A set $\Lambda \subseteq \mathbb{C}$ is a Cantor set if it is a closed, totally 
 \item Goal: discuss and prove parts of:
 \end{itemize}
 
-\vspace{1cm}
+\vspace{.7cm}
+
+
+  \setbeamercolor{block title}{use=structure,fg=white,bg=aqua}
+  \setbeamercolor{block body}{use=structure,fg=black,bg=lightaqua}
+
 
 \begin{theorem}
 If $|c|$ is sufficiently large, $\Lambda$, the set of points whose entire forward orbits lie within the circle $|z|=|c|$, is a Cantor set on which $Q_c$ is topologically conjugate to the shift map on two symbols. All points in $\mathbb{C} - \Lambda$ tend to $\infty$ under iteration of $Q_c$. Hence, $J_c=K_c$.
 \end{theorem}
+
+\vspace{.7cm}
+
+How large is 'sufficiently large'? We will discuss the case where $|c| > 2$.
 
 \end{frame}
 
@@ -343,6 +347,9 @@ Similar arguments to those we used for the Cantor set yield that [1] this corres
 \subsection{frame 6}
 \begin{frame}
 
+To wrap this up, here are a few remarks:
+
+\vspace{.4cm}
 
 \begin{rmk}
 $Q_c$ is supersensitive on $J_c$. (As handwavy as Devaney)
@@ -393,16 +400,7 @@ When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thur
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\subsection{frame 3}
-\begin{frame}
-
-\href{http://acko.net/blog/how-to-fold-a-julia-fractal/}{Acko -- How to Fold a Julia Fractal}
-
-\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -413,11 +411,15 @@ When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thur
 
 Explanation for an alternative plotting algorithm
 
+\vspace{.4cm}
+
 The above algorithm works well for $K_c$ but as well for $J_c$.
 To remedy this, recall that $Q_c$ is supersensitive on $J_c$.
 This means that any neighborhood $B$ of some point $z\in J_c$ has
 the property that 
 $\bigcup_{n=0}^\infty Q_0^{\circ n} (B) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+
+\vspace{.4cm}
 
 So supersensitive points serve as ``attractors'' for the backward iteration of $Q_c$, 
 in the sense that for each supersensitive point, all of $\mathbb{C}$ except at most one point
@@ -473,10 +475,6 @@ $z \leftarrow $ \KwRandC{}\;
 
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\scshape Methodology}
 
 
 \end{document}
