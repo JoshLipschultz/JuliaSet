@@ -356,7 +356,7 @@ Similar arguments to those we used for the Cantor set yield that [1] this corres
 \subsection{frame 6}
 \begin{frame}
 
-To wrap this up, here are a few remarks:
+To wrap this up, here are a few remarks (largely without proof):
 
 \vspace{.1cm}
 \pause
@@ -375,7 +375,7 @@ Since $K_c$ is a Cantor set (each component of $K_c$ is a point) when $|c| > 2$,
 \pause
 
 \begin{rmk}
-When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thursday.
+When $|c| > 2$, the orbit of 0 tends to $\infty$. This will be important on Thursday.
 \end{rmk}
 
 \end{frame}
@@ -422,9 +422,9 @@ This website gives an amazing visual intuition for the process we just described
   \DontPrintSemicolon
   \LinesNumbered
 
-\KwIn{grid, a list of evenly-spaced complex numbers in a rectangular region of the complex plane}
+\KwIn{grid, a list of evenly-spaced complex numbers in a rectangular region of the complex plane. MaxIter, the number of iterations to perform}
 
-\For{$j  \leftarrow 1$ to $N$}{
+\For{$j  \leftarrow 1$ to $MaxIter$}{
 	\For{$z$ in $grid$}{
 		$z \leftarrow Q_c(z)$ \;
 	}
