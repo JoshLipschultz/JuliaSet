@@ -14,6 +14,7 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.fractals}
 \usetikzlibrary{shadings}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -196,6 +197,8 @@ How large is 'sufficiently large'? We will discuss the case where $|c| > 2$.
 Suppose $2 < |c| \le |z|$. Then we have that $|Q_c^{\circ n}(z)| \rightarrow \infty$ as $n \rightarrow \infty$.
 \end{theorem}
 
+\pause
+
 \begin{proof}
 We use the triangle inequality to get the following estimate:
 \begin{equation}
@@ -210,6 +213,10 @@ Since $|z|$ is fixed and $(1+\lambda)^n$ grows arbitrarily large, $|Q_c^n(z)|$ a
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{frame 3}
 \begin{frame}
 
@@ -220,6 +227,8 @@ K_c = \bigcap\limits_{n\ge 0} Q_c^{\circ -n} (D)
 \end{align*}
 where $Q_c^{\circ -n} (D)$ denotes the preimage of $D$ under $Q_c^{\circ n}$
 \end{theorem}
+
+\pause
 
 \begin{proof}
     Consider the case where
@@ -349,16 +358,21 @@ Similar arguments to those we used for the Cantor set yield that [1] this corres
 
 To wrap this up, here are a few remarks:
 
-\vspace{.4cm}
+\vspace{.1cm}
+\pause
 
 \begin{rmk}
-$Q_c$ is supersensitive on $J_c$. (As handwavy as Devaney)
+$Q_c$ is supersensitive on $J_c$. Roughly, (as handwavy as Devaney), this is because we can, for any point $z \in I_{s_0s_1\ldots s_k}$, find a small enough disk that contains $z$ such that for an arbitrarily large $k$ we have $Q_c^{\circ k} = D$. Further iterations of $Q_c$ will eventually diffeomorphically map that disk to 
+all of $\mathbb{C}$ (except for at most 1 point).
 \end{rmk}
 
+\pause
 
 \begin{rmk}
 Since $K_c$ is a Cantor set (each component of $K_c$ is a point) when $|c| > 2$, the Julia and filled Julia sets are identical ($K_c = J_c$).
 \end{rmk}
+
+\pause
 
 \begin{rmk}
 When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thursday.
@@ -368,8 +382,35 @@ When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thur
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{frame 7}
+\begin{frame}
+
+
+This website gives an amazing visual intuition for the process we just described:
+
+\vspace{.5cm}
+
+
+
+\begin{itemize}
+{\color{DeepSkyBlue4}
+	\item \href{http://acko.net/blog/how-to-fold-a-julia-fractal/}{Acko - How to Fold a Julia Fractal}
+}
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{\scshape $K_c$ Algorithm}
 
 \subsection{frame 2}
@@ -402,35 +443,10 @@ When $|c| > 2$, the orbit of 0 tents to $\infty$. This will be important on Thur
 
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape $J_c$ Algorithm}
 
-\begin{frame}
-
-Explanation for an alternative plotting algorithm
-
-\vspace{.4cm}
-
-The above algorithm works well for $K_c$ but as well for $J_c$.
-To remedy this, recall that $Q_c$ is supersensitive on $J_c$.
-This means that any neighborhood $B$ of some point $z\in J_c$ has
-the property that 
-$\bigcup_{n=0}^\infty Q_0^{\circ n} (B) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
-
-\vspace{.4cm}
-
-So supersensitive points serve as ``attractors'' for the backward iteration of $Q_c$, 
-in the sense that for each supersensitive point, all of $\mathbb{C}$ except at most one point
-must come arbitrarily close to it on reverse iteration. 
-
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{frame 2}
 \begin{frame}
 
@@ -470,11 +486,62 @@ $z \leftarrow $ \KwRandC{}\;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{frame 3}
+
+\subsection{frame 1}
 \begin{frame}
+
+Explanation for an alternative plotting algorithm
+
+\vspace{.4cm}
+
+The above algorithm works well for $K_c$ but as well for $J_c$.
+To remedy this, recall that $Q_c$ is supersensitive on $J_c$.
+This means that any neighborhood $B$ of some point $z\in J_c$ has
+the property that 
+$\bigcup_{n=0}^\infty Q_0^{\circ n} (B) = \mathbb{C} \setminus \{p\}$ for at most one point $p$.
+
+\vspace{.4cm}
+
+So supersensitive points serve as ``attractors'' for the backward iteration of $Q_c$, 
+in the sense that for each supersensitive point, all of $\mathbb{C}$ except at most one point
+must come arbitrarily close to it on reverse iteration. 
+
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape Pictures}
+
+\subsection{frame 1}
+
+
+\begin{frame}
+
+
+\begin{itemize}
+{\color{DeepSkyBlue4}
+	\item \href{http://demonstrations.wolfram.com/JuliaSetsAndTheMandelbrotSet/}{A demo of Julia-Mandelbrot correspondence}
+}
+\end{itemize}
+
+
+
+\vspace{.4cm}
+
+
+\begin{itemize}
+{\color{DeepSkyBlue4}
+	\item \href{http://www.juliasets.dk/UFP.htm}{Some pictures of generalized Julia sets}
+}
+\end{itemize}
+
+
+
+
+
+\end{frame}
 
 
 \end{document}
