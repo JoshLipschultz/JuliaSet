@@ -326,18 +326,18 @@ intersection is a nonempty set.
 \subsection{frame 5}
 \begin{frame}
 
-This gives us that, for any $z \in \cap_{n\ge 0} I_{s_0s_1\ldots s_n}$, $Q_c^{\circ k} (z) \in D$ for all $k$. Hence, $z \in K_c$.
+This gives us that, for any $z \in \bigcap_{n\ge 0} I_{s_0s_1\ldots s_n}$, $Q_c^{\circ k} (z) \in D$ for all $k$. Hence, $z \in K_c$.
 
 \vspace{0.4cm}
 \pause
 
-A \textsl{component} of $K_c$ is defined as an infinite intersection of figure-eights and their lobes. Two components are necessarily disjoint.
+A \textsl{component} of $K_c$ is defined as an infinite intersection of lemniscates and their lobes. Two components are necessarily disjoint.
 
 \vspace{0.4cm}
 \pause
 
 Conversely, any $z \in K_c$ must lie in exactly one of these components, since any infinite string of $1$s and $0$
-maps to any $z$ by $S(z) = s_0s_1\ldots s_n$ provided $z\in \cap_{n\ge 0} I_{s_0s_1 \ldots s_n}$.
+maps to any $z$ by $S(z) = s_0s_1\ldots s_n$ provided $z\in \bigcap_{n\ge 0} I_{s_0s_1 \ldots s_n}$.
 
 \vspace{0.4cm}
 \pause
@@ -362,7 +362,7 @@ To wrap this up, here are a few remarks (largely without proof):
 \pause
 
 \begin{rmk}
-$Q_c$ is supersensitive on $J_c$. Roughly, (as handwavy as Devaney), this is because we can, for any point $z \in I_{s_0s_1\ldots s_k}$, find a small enough disk that contains $z$ such that for an arbitrarily large $k$ we have $Q_c^{\circ k} = D$. Further iterations of $Q_c$ will eventually diffeomorphically map that disk to 
+$Q_c$ is supersensitive on $J_c$. Roughly, (as handwavy as Devaney), this is because we can, for any point $z \in I_{s_0s_1\ldots s_k}$, find a small enough disk $D_{\epsilon}$ that contains $z$ such that for an arbitrarily large $k$ we have $Q_c^{\circ k}(D_{\epsilon}) = D$ ($D = B(|c|,0)$). Further iterations of $Q_c$ will eventually diffeomorphically map that disk to 
 all of $\mathbb{C}$ (except for at most 1 point).
 \end{rmk}
 
